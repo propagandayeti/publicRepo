@@ -1,0 +1,9 @@
+try {
+    Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' | Select-Object -ExpandProperty TaskbarAl -ErrorAction Stop
+    Write-host "Taskbar alignment reg key exists"
+    Exit 0
+}
+catch {
+    Write-host "Taskbar alignment reg key doesn't exist. Remediation to take place."
+    Exit 1
+}
