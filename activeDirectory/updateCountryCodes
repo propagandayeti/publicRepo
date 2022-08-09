@@ -1,0 +1,3 @@
+#Country code list https://ldapwiki.com/wiki/Country%20Code
+$users = get-aduser -Filter{(c -eq "CA") -and (enabled -eq $true)} -Properties c,co,countrycode | Where-Object{$_.co -eq $null}
+$users | Set-ADUser -Replace @{c="CA";co="Canada";countrycode=124}
