@@ -1,0 +1,4 @@
+// Look for sc.exe disabling services
+DeviceProcessEvents
+| where Timestamp > ago(1d)
+| where ProcessCommandLine has "sc" and ProcessCommandLine has "config" and ProcessCommandLine has "disabled"
